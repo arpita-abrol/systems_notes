@@ -29,7 +29,8 @@ struct
 * It is a **single** type, like an int or a double- inside of s, there is a char _and_ an int
 * The space allocated is 'padded' - there is sometimes extra space allocated, but there is always at least enough space
 * Typically, structs are written as:
-        ```struct {
+    ```
+    struct {
 	   int a;
 	   char x;
 	 } s;```
@@ -49,10 +50,11 @@ struct
 	This assigns `int a` of variable `s` as 10
 * The . operator is also used to access a value from a struct
 	* `.` binds before `*`
-	*To access data from a struct pointer, you can either:
-	```struct foo *p
-	   p = &s;
-	   (*p).x;
-	     OR
-	   p->x
+* To access data from a struct pointer, you can either:
+	```
+	struct foo *p
+	p = &s;
+	(*p).x;
+	OR
+	p->x
     ```
