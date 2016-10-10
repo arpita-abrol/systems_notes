@@ -22,18 +22,18 @@ void *
 struct
 * A collection of values in a single data type
 * syntax example:
-        ```c
-        struct { int z; char x; } s;
-        ```
+    ```c
+    struct { int z; char x; } s;
+    ```
     * Here, s is a variable of type `struct { int a; char x; }`
 * It is a **single** type, like an int or a double- inside of s, there is a char _and_ an int
 * The space allocated is 'padded' - there is sometimes extra space allocated, but there is always at least enough space
 * Typically, structs are written as:
     ```c
     struct {
-	   int a;
+    	   int a;
 	   char x;
-	 } s;
+    } s;
     ```
     * Example:
     ```c
@@ -52,10 +52,10 @@ struct
 * The . operator is also used to access a value from a struct
 	* `.` binds before `*`
 * To access data from a struct pointer, you can either:
-	```c
-	struct foo *p
-	p = &s;
-	(*p).x;
-	OR
-	p->x
-        ```
+    ```c
+    struct foo *p
+    p = &s;
+    (*p).x;
+    OR
+    p->x
+    ```
