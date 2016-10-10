@@ -33,7 +33,8 @@ struct
     struct {
 	   int a;
 	   char x;
-	 } s;```
+	 } s;
+	 ```
     * Example:
     ```
     struct foo { int a; char x; };
