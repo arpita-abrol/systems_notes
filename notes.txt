@@ -1,4 +1,4 @@
-Notes:A
+Notes:
 
 
 9-21-16
@@ -107,6 +107,7 @@ When reassigning a string value, you should overwrite
 
 Assignment: Write a function to modify String values
 
+
 9-26
 Aim: A String of functions
 
@@ -173,3 +174,143 @@ To rename an a.out file:
 
 9-30:
 Aim: 
+
+10-05:
+Aim: If these files won't behave, we'll have to separate them!
+
+And the winner of "I'm gonna demo my work" is...
+Anthony Zeng!
+
+Note: always allocate enough space when working with strings!!!
+
+//the crazy one liner strlen
+int len(char *s) {
+  return s?1+len(*++s):0; }
+
+s is basically a true/false.
+
+Separate compilation:
+  You can combine multiple c files into a c program by including
+  them all in one gcc command
+    ex:
+      gcc test.c string.c foo.c woohoo.c
+  Issues:
+    no duplicates of function names
+    You cannot have duplicate function or global variable names
+    across these files.
+      Big issue with main functions
+    
+
+10/06
+Aim: malloc & free: The dynamic duo!
+
+Separate compilation
+
+  you can combine multiple c files into a c program by including
+  them all in one gcc commend
+      ex.
+          gcc test.c string.c foo.c woohoo.c
+  You cannot have duplicate function or global variable names
+  across these files
+
+  work-around for multi-file compilation:
+      gcc -c <file1>.c
+      gcc -c <file2>.c
+      gcc <file1>.o <file2>.o
+
+gcc - c
+  Generate a compiled 'object', or .o file
+  Does not create a fully functional program, but it is compiled code
+
+.o files can be linked together with .c files through gcc
+
+0: malloc, free
+
+!0: calloc, realloc
+
+malloc:
+    void *malloc( int x )
+      pointer void
+    dynamically allocates memory
+    allocates x bytes of memory (from the heap)
+    returns pointer
+    O(1)
+    
+free:
+    releases dynamically allocated memory
+
+calloc:
+    void *calloc( int n, int x )
+    Allocates n * x bytes of memory
+    Ensures that each bit is set to 0
+    O(n)
+    allocates required memory in size bytes (dynamically) and returns a pointer
+    basically, malloc except the allocated memory has 0s
+    returns a pointer, or null (if fails)
+
+
+realloc:
+    realloc( void *p, int x )
+    Changes the amount of memory allocated to a given block
+
+p must be a pointer to the beginning of an allocated block of memory, but
+  it does not have to be the original pointer
+
+
+10-07
+Aim: Structured programming
+
+void *
+    The dynamic memmory fuction deal in arbitrary blocks of
+      memory. There is o regular type associated with the block
+    void * is considered to be a pointer to a 1 byte block of memory,
+      so pointer arithmetic will be based on 1
+
+    Whenever possible, you should typecast void * values to the appropriate
+      types
+
+    ex:
+      int *ip;
+      ip = (int *)malloc( 20 * sizeof(int) );
+
+Struct
+    A collection of values in a single data type
+
+    Syntax example:
+      struct { int z; char x; } s;
+    Here, s is a variable of type struct { int a; char x; }
+    It is a *single* type, like an int or double
+    Inside of s, there is a char and an int
+    The space allocated is 'padded' -there is sometimes extra space
+      allocated, but there is always at least enough space
+
+    Typically, structs are written as:
+      struct {
+        int a;
+	char x;
+      } s;
+
+    struct foo { int a; char x; };
+      In this example, foo is a prototype for this kind of
+        struct, to be used later: 
+    struct foo s;
+      This creates a variable, s, of the struct foo type
+
+    To assign variables, you use the dot operator
+      s.a = 10;
+      This assigns variable s, sub-variable a, as 10
+
+    We use the . operator to access a value from a struct
+      s.a = 10;
+      s.x = '@';
+
+      . binds before *
+
+        To access data from a struct pointer, you ca either:
+	  struct foo *p;
+	  p = &s;
+	  (*p).x;
+
+	  OR
+
+	  p->x
