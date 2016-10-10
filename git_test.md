@@ -29,7 +29,7 @@ struct
     struct { int z; char x; } s;
 ```
 
-    * Here, s is a variable of type `struct { int a; char x; }`
+* Here, s is a variable of type `struct { int a; char x; }`
 * It is a **single** type, like an int or a double- inside of s, there is a char _and_ an int
 * The space allocated is 'padded' - there is sometimes extra space allocated, but there is always at least enough space
 * Example:
