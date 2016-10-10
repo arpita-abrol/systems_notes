@@ -1,9 +1,0 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-int main() {
-  int var1;
-  int var2[5];
-  short ref*;
-  printf("%d\n%d\n%d\n",sizeof(var1),sizeof(var2),sizeof(ref));
-}
