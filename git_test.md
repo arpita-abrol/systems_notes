@@ -41,19 +41,19 @@ struct
     } s;
 ```
 
-    * Example:
+	* Example:
 
 ```c
     struct foo { int a; char x; };
 ```
 
-    * Here, foo is a prototype for this kind of struct, to be used later
+	* Here, foo is a prototype for this kind of struct, to be used later
 
 ```c
     struct foo s;
 ```
 
-    * This creates a variable `s` of the `struct foo type`
+	* This creates a variable `s` of the `struct foo type`
 * To assign variables, use the . operator
 
 ```c
