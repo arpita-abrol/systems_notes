@@ -314,3 +314,50 @@ Struct
 	  OR
 
 	  p->x
+
+10-11
+Aim: Get Dem Bugs
+
+DN: What's wrong?
+
+struct node * insert_front( struct node * n, int i ) {
+       struct node new;
+       new.i = i;
+       new.next = n;
+       return &new;
+}
+
+Problem:
+   new isn't made using malloc aka, memory not allocated
+   malloc/calloc don't need to be used, but memory has to be allocated
+   new is statically allocated
+      (only dynamically allocated when using malloc/calloc/realloc)
+   
+Typedef
+   Provides a new name for an existing data type
+   typedef <real_type> <new_name>;
+   ex.
+      typedef unsigned long size_t;
+      size_t x = 139; //x is really an unsigned long
+      typedef short[10] list;
+      list a; //a is an array of 10 shorts
+   generally not a good idea to use typedef with pointers
+   ex 2.
+      typedef struct { int a; char x; } bar;
+         Here, bar is a typedef for struct { int a; char x; }
+      bar s;
+         When using typedef and structs, you do not need to specify that
+          it is a struct.
+
+gdb (GNU Debugger)
+   aka, get dem bugs
+   Allows you to get detailed information about a program while it is running
+   Works sorta like a virtual machine
+   Super helpful if it crashes!!
+
+   gcc -g <file_name>
+   (gdb) list shows you the lines around your code so you can figure out
+    what's going on
+
+    To use gdb, you must use the -g flag
+
